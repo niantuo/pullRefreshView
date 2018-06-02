@@ -33,6 +33,8 @@ export default class Example extends NavigationPage{
    * @param {object} options Inform if first load
    */
   _onFetch(page = 1, callback, options) {
+
+    console.log('_onFetch','page->',page);
     setTimeout(() => {
       var rows = ['row '+((page - 1) * 3 + 1), 'row '+((page - 1) * 3 + 2), 'row '+((page - 1) * 3 + 3)];
       if (page === 3) {
@@ -44,7 +46,11 @@ export default class Example extends NavigationPage{
       }
     }, 1000); // simulating network fetching
   }
-  
+
+
+  componentWillUnmount(){
+    console.log('willUnmount->')
+  }
   
   /**
    * When a row is touched
